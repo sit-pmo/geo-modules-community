@@ -10,8 +10,11 @@ Un module GEO est un **ZIP** qui contient sa fiche (`plugin.geoext.json`) et son
 ## Prérequis
 
 - Un Générateur GEO et une application GEO. Chaque module indique la **version minimale de GEO** qu'il suppose.
-- Le module « GEO API JS v2 » ajouté à l'application : les modules s'en servent pour lire leurs réglages. Sans lui, certains modules ne
-  fonctionnent pas.
+- Le module « **GEO API JS v2** » ajouté à l'application, **si le module que vous installez a une page de réglages** dans la section
+  « Applications » du Générateur, ou s'il doit dialoguer avec les fonctionnalités de GEO et de l'application (couches, recherches, sélection…) :
+  c'est lui qui donne aux modules l'accès à l'application et à leurs réglages. Un module autonome, sans réglages ni lien avec l'application,
+  peut s'en passer ; sans lui, un module qui en dépend ne démarre pas, ou ignore ses réglages. Le README de chaque module doit préciser ce qu'il
+  exige ; en cas de doute, posez la question dans une issue.
 
 ## Étapes
 
