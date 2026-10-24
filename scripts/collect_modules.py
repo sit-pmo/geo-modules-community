@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Génère les pages de docs/modules/ depuis les dépôts GitHub des modules.
 
-Pour chaque module de scripts/modules.json, lit dans son dépôt public :
+Pour chaque module de scripts/modules.json, lit dans son dépôt public (API GitHub ; variable GITHUB_TOKEN facultative) :
   - src/plugin.geoext.json : nom affiché, version, version minimale de GEO ;
   - README.md              : page de présentation ;
   - CHANGELOG.md           : journal des nouveautés (facultatif) ;
@@ -12,6 +12,7 @@ n'est pas versionné. Une erreur sur un fichier obligatoire arrête le script : 
 qu'un site à moitié construit.
 """
 import json
+import os
 import re
 import shutil
 import sys
@@ -30,9 +31,15 @@ INTERNAL_PAGES = {"CHANGELOG.md": "changelog.md", "GUIDE-DEV.md": "guide-dev.md"
 
 
 def fetch(repo, path, required=True):
-    url = f"https://raw.githubusercontent.com/{ORG}/{repo}/{BRANCH}/{path}"
+    # API GitHub plutôt que raw.githubusercontent.com : ce dernier garde son contenu en cache plusieurs minutes, et une
+    # reconstruction déclenchée juste après une publication lirait l'ancienne version du module.
+    url = f"https://api.github.com/repos/{ORG}/{repo}/contents/{path}?ref={BRANCH}"
+    headers = {"Accept": "application/vnd.github.raw+json", "X-GitHub-Api-Version": "2022-11-28", "User-Agent": "geo-modules-community"}
+    token = os.environ.get("GITHUB_TOKEN")
+    if token:   # évite la limite des appels anonymes (60 par heure et par adresse)
+        headers["Authorization"] = f"Bearer {token}"
     try:
-        with urllib.request.urlopen(url, timeout=30) as response:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=30) as response:
             return response.read().decode("utf-8")
     except urllib.error.HTTPError as error:
         if error.code == 404 and not required:

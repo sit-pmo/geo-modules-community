@@ -18,4 +18,6 @@ jobs:
       - run: pip install -r requirements.txt
       # Pages des modules : lues depuis les dépôts publics, comme pour le déploiement
       - run: python scripts/collect_modules.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: zensical build --clean

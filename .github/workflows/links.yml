@@ -19,5 +19,7 @@ jobs:
           python-version: 3.x
       - run: pip install -r requirements.txt
       - run: python scripts/collect_modules.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: zensical build --clean
       - run: python scripts/check_links.py
