@@ -1,0 +1,31 @@
+# Mises à jour mensuelles et groupées : une seule demande de fusion par écosystème et par mois.
+# Dependabot ne fait que proposer ; la construction du site en PR (check.yml) vérifie que la nouvelle version passe.
+version: 2
+updates:
+  # Version de Zensical figée dans requirements.txt
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    assignees:
+      - "allfab"
+    groups:
+      python:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "build(deps)"
+
+  # Actions utilisées par les workflows de .github/workflows/
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    assignees:
+      - "allfab"
+    groups:
+      actions:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: "ci(deps)"

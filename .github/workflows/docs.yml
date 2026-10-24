@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  # Reconstruction hebdomadaire (le lundi) : reprend les modules publiés depuis le dernier déploiement
+  schedule:
+    - cron: "17 3 * * 1"
   # Reconstruction manuelle, ou déclenchée à la publication d'une version d'un module
   workflow_dispatch:
   repository_dispatch:

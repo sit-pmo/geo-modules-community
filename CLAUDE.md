@@ -16,6 +16,8 @@ scripts/collect_modules.py  Lit fiche, README, CHANGELOG et GUIDE-DEV de chaque 
 zensical.toml               Configuration ; la zone « # >>> modules » … « # <<< modules » du nav est réécrite par le script
 requirements.txt            Version de Zensical figée
 .github/workflows/docs.yml  Construction et déploiement (Pages, source « GitHub Actions »)
+.github/workflows/check.yml Construction sans déploiement à chaque PR
+.github/dependabot.yml     Mises à jour mensuelles et groupées (pip, actions), assignées à allfab
 ```
 
 ## Commandes
@@ -37,6 +39,9 @@ zensical build --clean               # génère site/ (non versionné)
   utiliser le Markdown ordinaire : `[texte](https://…)`.
 - **Vérifier les liens avant de pousser** : après `zensical build`, contrôler que les liens internes et les ancres existent dans `site/` et que les liens
   externes répondent 200 (un certificat incomplet côté serveur distant peut faire échouer un test local sans casser le lien dans un navigateur).
+- **Mises à jour du site** : push sur `main` (déploiement), construction sans déploiement à chaque PR, reconstruction hebdomadaire (lundi) et manuelle pour
+  reprendre les modules publiés entre-temps. Les PR de Dependabot (mensuelles, groupées) portent un préfixe `build(deps)` ou `ci(deps)` : leur description
+  commence par une majuscule (« Bump … »), seule exception tolérée à la convention de commits.
 - **Ajouter un module** : une entrée dans `scripts/modules.json` (dépôt public avec `src/plugin.geoext.json` et `README.md`), puis relancer le script.
 - **Version de Zensical figée** dans `requirements.txt` : le projet évolue vite. La changer volontairement, après un `zensical build` sans avertissement.
 - Les pages `developper/` sont la version publique des retours d'expérience : pas d'identifiants, pas de chemins de services internes, pas de noms de

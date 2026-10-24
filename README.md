@@ -55,8 +55,13 @@ Il n'utilise que la bibliothèque standard de Python.
 
 ## Mettre à jour le site
 
-Chaque push sur `main` reconstruit et publie le site. Une reconstruction manuelle (onglet *Actions*, « Run workflow ») reprend le dernier état de la
-branche `main` de chaque module. Réglage requis une fois : *Settings > Pages > Source : GitHub Actions*.
+- **Déploiement** : chaque push sur `main` reconstruit et publie le site.
+- **Demandes de fusion** : le site est construit sans être déployé (`check.yml`), pour détecter une erreur avant la fusion.
+- **Pages des modules** : le workflow les régénère chaque lundi, et à la demande (onglet *Actions*, « Run workflow »). Elles reprennent le dernier
+  état de la branche `main` de chaque module.
+- **Dépendances** : Dependabot ouvre chaque mois une demande de fusion groupée pour Zensical et pour les actions GitHub, assignée à `allfab` ; la
+  construction en PR vérifie qu'elles passent.
+- Réglage requis une fois : *Settings > Pages > Source : GitHub Actions*.
 
 ## Licence
 

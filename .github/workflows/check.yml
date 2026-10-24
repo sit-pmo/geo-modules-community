@@ -1,0 +1,21 @@
+name: Vérification du site
+
+# Construit le site sans le déployer : détecte une erreur de build ou une page mal déclarée avant la fusion.
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: 3.x
+      - run: pip install -r requirements.txt
+      # Pages des modules : lues depuis les dépôts publics, comme pour le déploiement
+      - run: python scripts/collect_modules.py
+      - run: zensical build --clean
