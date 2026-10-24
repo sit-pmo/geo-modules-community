@@ -76,9 +76,10 @@ Il n'utilise que la bibliothèque standard de Python.
 
 - Ce dépôt a ses modèles : *Proposer un nouveau module*, *Corriger ou améliorer le site*, et un modèle de demande de fusion (`.github/`).
 - Les modèles des **dépôts de modules** (*Signaler un problème*, *Proposer une fonctionnalité*, demande de fusion) vivent dans le dépôt
-  `vienne-condrieu-agglomeration/.github` : ils s'appliquent par défaut à tout dépôt de l'organisation qui n'a pas les siens.
+  `vienne-condrieu-agglomeration/.github` (dossier `.github/ISSUE_TEMPLATE/` de ce dépôt) : ils s'appliquent par défaut à tout dépôt de l'organisation
+  qui n'a pas les siens. Un label demandé par un modèle doit exister dans le dépôt `.github` **et** dans chaque dépôt qui l'utilise.
 - Les labels communs sont décrits dans `scripts/labels.json` ; `scripts/sync_labels.sh organisation/depot …` les crée ou les met à jour
-  (nécessite `gh auth login`, agit sur GitHub).
+  (nécessite `gh auth login`, agit sur GitHub). À lancer aussi sur `vienne-condrieu-agglomeration/.github`.
 
 ## Licence
 
