@@ -6,6 +6,9 @@ site_url = "https://vienne-condrieu-agglomeration.github.io/geo-modules-communit
 repo_url = "https://github.com/vienne-condrieu-agglomeration/geo-modules-community"
 repo_name = "geo-modules-community"
 edit_uri = "edit/main/docs/"
+extra_css = [
+  "stylesheets/extra.css",
+]
 copyright = "Copyright &copy; 2026 Vienne Condrieu Agglomération"
 
 # Navigation explicite : une page absente de « nav » n'apparaît pas dans le menu. Les pages des modules sont
@@ -57,19 +60,20 @@ features = [
     "toc.follow",
 ]
 
-[[project.theme.palette]]
-scheme = "default"
-primary = "teal"
-accent = "teal"
-toggle.icon = "lucide/sun"
-toggle.name = "Passer en mode sombre"
-
+# La première palette est celle qui s'applique par défaut : sombre d'abord.
 [[project.theme.palette]]
 scheme = "slate"
-primary = "teal"
-accent = "teal"
+primary = "custom"
+accent = "custom"
 toggle.icon = "lucide/moon"
 toggle.name = "Passer en mode clair"
+
+[[project.theme.palette]]
+scheme = "default"
+primary = "custom"
+accent = "custom"
+toggle.icon = "lucide/sun"
+toggle.name = "Passer en mode sombre"
 
 [project.theme.font]
 text = "Inter"

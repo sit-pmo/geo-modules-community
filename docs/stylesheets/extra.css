@@ -1,0 +1,16 @@
+/* Couleurs alignées sur le bleu de la favicon (#3898e8) */
+:root > * {
+  --md-primary-fg-color:        #3898e8;
+  --md-primary-fg-color--light: #6cb3ee;
+  --md-primary-fg-color--dark:  #1f6fb8;
+
+  --md-accent-fg-color:              #3898e8;
+  --md-accent-fg-color--transparent: rgba(56, 152, 232, 0.1);
+}
+
+/* Mode clair : liens plus foncés pour garder un contraste lisible sur fond blanc */
+[data-md-color-scheme="default"] {
+  --md-typeset-a-color:         #1f6fb8;
+  --md-accent-fg-color:         #1f6fb8;
+  --md-accent-fg-color--transparent: rgba(31, 111, 184, 0.1);
+}
