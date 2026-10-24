@@ -19,6 +19,22 @@ reprises et publiées.
 - **Transparent** : les décisions sont écrites là où tout le monde peut les lire, avec leur raison, y compris quand la réponse est « non ».
 - **Simple** : peu de règles, des modèles et des listes de contrôle plutôt que des procédures.
 
+## Un projet bénévole
+
+Cette bibliothèque est animée **bénévolement**, sur le temps que chacun peut y consacrer. Ce qui est écrit sur cette page relève de
+l'**intention**, pas de l'obligation :
+
+- les règles décrites ici sont des **repères** que nous nous donnons pour travailler ensemble et rester cohérents ; elles ne sont pas
+  prescriptives, et un cas particulier peut justifier d'y déroger ;
+- les **délais** annoncés (réponse, publication) servent à garder le projet vivant et à ne laisser aucune demande sans nouvelles. **Aucun
+  contrat ne nous oblige à les tenir** : ils peuvent être dépassés, sans préavis, selon nos disponibilités ;
+- il n'y a **ni support, ni garantie de service, ni engagement** de corriger un bogue ou de retenir une fonctionnalité. Les modules sont
+  fournis sous licence libre, **sans garantie**, comme le précisent les licences GPL-3.0 et CC-BY-4.0 ;
+- une demande qui reste sans réponse n'est pas un refus : un rappel poli, dans l'issue ou sur le Discord, est toujours le bienvenu.
+
+L'esprit est celui d'un coup de main entre collègues de collectivités : chacun donne ce qu'il peut, et une contribution, même petite,
+vaut mieux que de bonnes intentions.
+
 ## Rôles
 
 | Rôle | Qui | Ce que le rôle permet |
@@ -47,6 +63,29 @@ Un contributeur régulier peut être invité comme co-mainteneur ; la décision 
 
 Une correction simple (faute, lien, bogue évident) n'a pas besoin d'issue préalable : une demande de fusion directe suffit.
 
+## Proposer un nouveau module
+
+Les propositions de nouveaux modules sont **bienvenues**, et elles reçoivent toujours une réponse écrite. Le parcours est le même que pour une
+fonctionnalité :
+
+1. **Ouvrir une issue** sur [geo-modules-community](https://github.com/vienne-condrieu-agglomeration/geo-modules-community/issues) avec le
+   modèle « Proposer un module » : le besoin, ce que le module fait et ne fait pas, la version de GEO visée, qui le développerait et qui
+   l'entretiendrait ensuite.
+2. **Discuter** avec les mainteneurs et la communauté (le [Discord](contribuer.md#echanger-avec-la-communaute) peut servir à tâter le terrain).
+3. **Décider** : les mainteneurs répondent dans l'issue par `acceptée`, `reportée` ou `refusée`, avec la raison.
+4. **Réaliser** : le porteur développe le module, puis le propose pour relecture. Il est publié dans la bibliothèque dès qu'il remplit les critères
+   ci-dessous.
+
+Un module est bienvenu s'il :
+
+- répond à un **besoin partagé** par plusieurs utilisateurs de GEO, pas seulement à un cas local ;
+- a un **périmètre clair** : il fait une chose, bien ;
+- est publié sous **GPL-3.0-or-later** pour le code et **CC-BY-4.0** pour la documentation, ou sous des licences compatibles ;
+- indique la **version minimale de GEO** et a été essayé dans un vrai GEO ;
+- a quelqu'un pour **l'entretenir**, au moins pour répondre aux retours. Un module qui n'a plus de mainteneur peut être signalé comme tel
+  dans le catalogue, plutôt que retiré ;
+- inclut un **README**, un **journal des nouveautés** et ses mentions de licence, comme les modules existants.
+
 ## Critères d'intégration
 
 Une proposition est retenue si elle :
@@ -74,7 +113,7 @@ Les dépôts GitHub des modules sont alimentés depuis le **dépôt source de la
 Les commits d'origine restent visibles sur GitHub, mais n'ont pas le même identifiant dans le dépôt source : seul le contenu fait référence.
 Les contributions sont citées dans le `README.md` du module concerné.
 
-**Délais visés** *(à valider)* : première réponse à une issue ou une demande de fusion sous une semaine ; publication de la version suivante dans
+**Délais indicatifs** *(à valider ; voir [Un projet bénévole](#un-projet-benevole))* : première réponse à une issue ou une demande de fusion sous une semaine ; publication de la version suivante dans
 le mois qui suit la fusion.
 
 ### Versions
@@ -111,5 +150,5 @@ Points à trancher ensemble :
 - Les **délais** de réponse et de publication ci-dessus sont-ils tenables et utiles ?
 - Quel **mode d'invitation** des co-mainteneurs, et sur quels modules ?
 - Les **droits d'écriture** : demandes de fusion relues pour tout le monde, ou accès direct pour des co-mainteneurs de confiance ?
-- Peut-on **proposer un module nouveau** dans la bibliothèque, et selon quels critères (périmètre, maintenance, licence) ?
+- **Où vit le code d'un module proposé par quelqu'un d'autre** : dans un dépôt de l'organisation (comme les modules actuels), ou dans le dépôt de son auteur, simplement référencé dans le catalogue du site ?
 - Faut-il un **code de conduite** pour le Discord et les dépôts ?
