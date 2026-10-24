@@ -41,6 +41,7 @@ nav = [
     "developper/11-reussites.md",
   ]},
   { "Contribuer" = "contribuer.md" },
+  { "Gouvernance" = "gouvernance.md" },
 ]
 
 [project.theme]

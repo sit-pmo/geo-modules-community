@@ -35,6 +35,10 @@ Pour une question sur ce site ou sur la démarche générale, utilisez les issue
 4. **Essayez votre modification dans un vrai GEO** avant de proposer : `npm run package` produit le ZIP à importer. Le plugin de publication
    de Business Geografic n'est pas nécessaire pour contribuer.
 
+## Comment une idée est décidée
+
+Le parcours d'une proposition (issue, discussion, décision, critères d'intégration, délais) est décrit dans la page [Gouvernance](gouvernance.md).
+
 ## Licence de vos contributions
 
 En contribuant, vous acceptez que votre contribution soit publiée sous les licences du projet : **GPL-3.0-or-later** pour le code,

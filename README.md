@@ -8,7 +8,7 @@ Le site est construit avec [Zensical](https://zensical.org/) et publié par GitH
 ## Structure
 
 ```
-docs/                    Pages écrites à la main : accueil, installer, contribuer, developper/
+docs/                    Pages écrites à la main : accueil, installer, contribuer, gouvernance, developper/
 docs/modules/            Pages de chaque module : GÉNÉRÉES (non versionnées)
 scripts/modules.json     Liste des modules affichés
 scripts/collect_modules.py   Lit le dépôt de chaque module (fiche, README, CHANGELOG, GUIDE-DEV) et génère docs/modules/
