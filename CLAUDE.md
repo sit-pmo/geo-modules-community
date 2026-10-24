@@ -20,6 +20,8 @@ requirements.txt            Version de Zensical figée
 .github/workflows/check.yml Construction sans déploiement à chaque PR
 .github/workflows/links.yml Contrôle hebdomadaire des liens (scripts/check_links.py)
 .github/dependabot.yml     Mises à jour mensuelles et groupées (pip, actions), assignées à allfab
+.github/ISSUE_TEMPLATE/    Modèles d'issue du site (proposer un module, corriger le site) ; PULL_REQUEST_TEMPLATE.md à côté
+scripts/labels.json         Labels communs ; scripts/sync_labels.sh les applique aux dépôts (action sur GitHub : demander l'accord)
 ```
 
 ## Commandes

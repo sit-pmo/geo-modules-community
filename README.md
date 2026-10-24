@@ -72,6 +72,14 @@ Il n'utilise que la bibliothèque standard de Python.
   construction en PR vérifie qu'elles passent.
 - Réglage requis une fois : *Settings > Pages > Source : GitHub Actions*.
 
+## Modèles d'issue, de PR et labels
+
+- Ce dépôt a ses modèles : *Proposer un nouveau module*, *Corriger ou améliorer le site*, et un modèle de demande de fusion (`.github/`).
+- Les modèles des **dépôts de modules** (*Signaler un problème*, *Proposer une fonctionnalité*, demande de fusion) vivent dans le dépôt
+  `vienne-condrieu-agglomeration/.github` : ils s'appliquent par défaut à tout dépôt de l'organisation qui n'a pas les siens.
+- Les labels communs sont décrits dans `scripts/labels.json` ; `scripts/sync_labels.sh organisation/depot …` les crée ou les met à jour
+  (nécessite `gh auth login`, agit sur GitHub).
+
 ## Licence
 
 Contenu sous [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/deed.fr), code des scripts sous GPL-3.0-or-later.

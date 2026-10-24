@@ -1,0 +1,14 @@
+[
+  { "name": "bug", "color": "d73a4a", "description": "Un module ne fonctionne pas comme prévu" },
+  { "name": "enhancement", "color": "a2eeef", "description": "Amélioration ou nouvelle fonctionnalité" },
+  { "name": "documentation", "color": "0075ca", "description": "Documentation, site ou gouvernance" },
+  { "name": "question", "color": "d876e3", "description": "Une question" },
+  { "name": "good first issue", "color": "7057ff", "description": "Bon point d'entrée pour une première contribution" },
+  { "name": "help wanted", "color": "008672", "description": "Un coup de main est le bienvenu" },
+  { "name": "idée", "color": "fef2c0", "description": "Proposition à discuter" },
+  { "name": "acceptée", "color": "0e8a16", "description": "Retenue par les mainteneurs ; un porteur la développe" },
+  { "name": "reportée", "color": "fbca04", "description": "Intéressante, mais pas maintenant (raison donnée dans l'issue)" },
+  { "name": "refusée", "color": "b60205", "description": "Non retenue (raison donnée dans l'issue)" },
+  { "name": "nouveau module", "color": "1d76db", "description": "Proposition de nouveau module" },
+  { "name": "à rapatrier", "color": "c5def5", "description": "Fusionnée sur GitHub, à reprendre dans le dépôt source avant la publication suivante" }
+]

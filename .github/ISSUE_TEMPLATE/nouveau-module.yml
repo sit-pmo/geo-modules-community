@@ -1,0 +1,66 @@
+name: Proposer un nouveau module
+description: Une idée de module à ajouter à la bibliothèque
+labels: ["nouveau module", "idée"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Les propositions de nouveaux modules sont bienvenues et reçoivent une réponse écrite : `acceptée`, `reportée` ou `refusée`, avec la raison. Le parcours et les critères sont décrits dans la [page Gouvernance](https://vienne-condrieu-agglomeration.github.io/geo-modules-community/gouvernance/#proposer-un-nouveau-module). Ce projet est mené bénévolement : les délais sont indicatifs.
+  - type: input
+    id: nom
+    attributes:
+      label: Nom du module
+      placeholder: "Par exemple : Impression rapide"
+    validations:
+      required: true
+  - type: textarea
+    id: besoin
+    attributes:
+      label: Le besoin
+      description: Quel problème résout-il, et pour qui ? Est-il partagé par plusieurs utilisateurs de GEO ?
+    validations:
+      required: true
+  - type: textarea
+    id: perimetre
+    attributes:
+      label: Périmètre
+      description: Ce que le module fait, et ce qu'il ne fait pas.
+    validations:
+      required: true
+  - type: input
+    id: version-geo
+    attributes:
+      label: Version minimale de GEO visée
+      placeholder: "3.2.0"
+  - type: textarea
+    id: existant
+    attributes:
+      label: Existe-t-il déjà quelque chose ?
+      description: Un module, un script ou une fonction de GEO qui répond en partie au besoin (liens).
+  - type: dropdown
+    id: developpement
+    attributes:
+      label: Qui le développerait ?
+      options:
+        - Je le développe (ou une personne de mon équipe)
+        - Je cherche quelqu'un pour le développer
+        - Il est déjà développé et je souhaite le partager
+    validations:
+      required: true
+  - type: dropdown
+    id: maintenance
+    attributes:
+      label: Qui l'entretiendrait ensuite ?
+      description: Au moins répondre aux retours. Un module sans mainteneur peut être signalé comme tel dans le catalogue.
+      options:
+        - Moi (ou mon équipe)
+        - Je ne sais pas encore
+    validations:
+      required: true
+  - type: checkboxes
+    id: licence
+    attributes:
+      label: Licence
+      options:
+        - label: Je suis d'accord pour une publication du code sous GPL-3.0-or-later et de la documentation sous CC-BY-4.0 (ou des licences compatibles).
+          required: true

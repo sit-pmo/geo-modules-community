@@ -1,0 +1,20 @@
+name: Corriger ou améliorer le site
+description: Une erreur, un manque ou une idée pour le site, la documentation ou la gouvernance
+labels: ["documentation"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page concernée
+      placeholder: "https://vienne-condrieu-agglomeration.github.io/geo-modules-community/installer/"
+  - type: textarea
+    id: constat
+    attributes:
+      label: Ce qui ne va pas, ou ce que vous proposez
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Précisions
+      description: Texte corrigé proposé, capture d'écran, lien utile…
