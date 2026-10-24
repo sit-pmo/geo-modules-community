@@ -1,0 +1,9 @@
+site/
+.cache/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Pages de modules : générées depuis les dépôts des modules par scripts/collect_modules.py
+docs/modules/

@@ -1,0 +1,9 @@
+{
+  "_commentaire": "Modules affichés sur le site. Ajouter une entrée ici suffit : scripts/collect_modules.py lit le dépôt, sa fiche src/plugin.geoext.json, son README et son CHANGELOG.",
+  "organisation": "vienne-condrieu-agglomeration",
+  "branche": "main",
+  "modules": [
+    { "repo": "geo-module-panoramax", "slug": "panoramax" },
+    { "repo": "geo-module-compare-swipe", "slug": "compare-swipe" }
+  ]
+}

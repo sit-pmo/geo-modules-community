@@ -1,0 +1,74 @@
+[project]
+site_name = "Modules GEO — Vienne Condrieu Agglomération"
+site_description = "Modules d'extension pour la plateforme GEO de Business Geografic : installation, utilisation, développement et contribution"
+site_author = "Vienne Condrieu Agglomération"
+site_url = "https://vienne-condrieu-agglomeration.github.io/geo-modules-community/"
+repo_url = "https://github.com/vienne-condrieu-agglomeration/geo-modules-community"
+repo_name = "geo-modules-community"
+edit_uri = "edit/main/docs/"
+copyright = "Copyright &copy; 2026 Vienne Condrieu Agglomération"
+
+# Navigation explicite : une page absente de « nav » n'apparaît pas dans le menu. Les pages des modules sont
+# générées : scripts/collect_modules.py réécrit la zone entre les deux marqueurs « modules » (ne pas l'éditer à la main).
+nav = [
+  { "Accueil" = "index.md" },
+  { "Modules" = [
+    "modules/index.md",
+    # >>> modules
+    { "Comparateur de rasters (rideau / loupe)" = [ "modules/compare-swipe/index.md", "modules/compare-swipe/changelog.md" ] },
+    { "Vue immersive Panoramax" = [ "modules/panoramax/index.md", "modules/panoramax/changelog.md", "modules/panoramax/guide-dev.md" ] },
+    # <<< modules
+  ]},
+  { "Installer un module" = "installer.md" },
+  { "Développer" = [
+    "developper/index.md",
+    "developper/01-contexte-execution.md",
+    "developper/02-interface.md",
+    "developper/03-cartes-secondaires.md",
+    "developper/04-piloter-la-carte.md",
+    "developper/05-manifeste-generateur.md",
+    "developper/06-angular-timing.md",
+    "developper/07-build.md",
+    "developper/08-css.md",
+    "developper/09-donnees-externes.md",
+    "developper/10-debug.md",
+    "developper/11-reussites.md",
+  ]},
+  { "Contribuer" = "contribuer.md" },
+]
+
+[project.theme]
+language = "fr"
+features = [
+    "content.action.edit",
+    "content.code.annotate",
+    "content.code.copy",
+    "navigation.footer",
+    "navigation.indexes",
+    "navigation.instant",
+    "navigation.sections",
+    "navigation.tabs",
+    "navigation.top",
+    "navigation.tracking",
+    "search.highlight",
+    "search.suggest",
+    "toc.follow",
+]
+
+[[project.theme.palette]]
+scheme = "default"
+primary = "teal"
+accent = "teal"
+toggle.icon = "lucide/sun"
+toggle.name = "Passer en mode sombre"
+
+[[project.theme.palette]]
+scheme = "slate"
+primary = "teal"
+accent = "teal"
+toggle.icon = "lucide/moon"
+toggle.name = "Passer en mode clair"
+
+[project.theme.font]
+text = "Inter"
+code = "JetBrains Mono"
