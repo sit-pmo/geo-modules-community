@@ -2,7 +2,7 @@
 icon: lucide/puzzle
 ---
 
-# Modules GEO — Vienne Condrieu Agglomération
+# Communauté des modules GEO
 
 Bienvenue sur le site des **modules d'extension pour GEO**, la plateforme cartographique de Business Geografic. Ces modules sont développés et
 utilisés par le service SIG et Foncier de Vienne Condrieu Agglomération, et partagés sous licence libre pour que d'autres collectivités puissent
