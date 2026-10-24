@@ -13,10 +13,12 @@ docs/javascripts/external-links.js   Ouvre les liens externes dans un nouvel ong
 docs/stylesheets/extra.css  Couleurs du thème (bleu de la favicon)
 scripts/modules.json        Modules affichés (repo + slug)
 scripts/collect_modules.py  Lit fiche, README, CHANGELOG et GUIDE-DEV de chaque dépôt de module
+scripts/check_links.py      Contrôle les liens internes, ancres et liens externes du site construit
 zensical.toml               Configuration ; la zone « # >>> modules » … « # <<< modules » du nav est réécrite par le script
 requirements.txt            Version de Zensical figée
 .github/workflows/docs.yml  Construction et déploiement (Pages, source « GitHub Actions »)
 .github/workflows/check.yml Construction sans déploiement à chaque PR
+.github/workflows/links.yml Contrôle hebdomadaire des liens (scripts/check_links.py)
 .github/dependabot.yml     Mises à jour mensuelles et groupées (pip, actions), assignées à allfab
 ```
 
@@ -37,8 +39,9 @@ zensical build --clean               # génère site/ (non versionné)
   générées des modules comprises) s'ouvre dans un nouvel onglet (`target="_blank"`, `rel="noopener noreferrer"`), posé par `docs/javascripts/external-links.js`.
   Ne pas ajouter `{ target="_blank" }` à la main ni modifier ce comportement. Les liens **internes** restent dans l'onglet courant. Pour écrire un lien,
   utiliser le Markdown ordinaire : `[texte](https://…)`.
-- **Vérifier les liens avant de pousser** : après `zensical build`, contrôler que les liens internes et les ancres existent dans `site/` et que les liens
-  externes répondent 200 (un certificat incomplet côté serveur distant peut faire échouer un test local sans casser le lien dans un navigateur).
+- **Vérifier les liens avant de pousser** : `zensical build --clean && python scripts/check_links.py`. Les liens internes, les ancres et les liens externes
+  morts (404, 410, domaine introuvable) font échouer le script ; les autres échecs (403, 429, délai, certificat incomplet côté serveur distant) sont des
+  avertissements. Le même contrôle tourne chaque semaine dans `links.yml`.
 - **Mises à jour du site** : push sur `main` (déploiement), construction sans déploiement à chaque PR, reconstruction hebdomadaire (lundi) et manuelle pour
   reprendre les modules publiés entre-temps. Les PR de Dependabot (mensuelles, groupées) portent un préfixe `build(deps)` ou `ci(deps)` : leur description
   commence par une majuscule (« Bump … »), seule exception tolérée à la convention de commits.

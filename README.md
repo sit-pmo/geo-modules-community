@@ -26,6 +26,13 @@ python scripts/collect_modules.py     # génère docs/modules/ (accès réseau �
 zensical serve                        # http://localhost:8000 (utiliser le Zensical du .venv : la version est figée)
 ```
 
+Contrôler les liens du site construit :
+
+```bash
+zensical build --clean
+python scripts/check_links.py         # code de sortie 1 en cas de lien interne ou externe mort
+```
+
 ## Ajouter un module au site
 
 Ajouter une entrée `{ "repo": "geo-module-<nom>", "slug": "<nom>" }` dans `scripts/modules.json`. Le dépôt du module doit être public et contenir
@@ -59,6 +66,8 @@ Il n'utilise que la bibliothèque standard de Python.
 - **Demandes de fusion** : le site est construit sans être déployé (`check.yml`), pour détecter une erreur avant la fusion.
 - **Pages des modules** : le workflow les régénère chaque lundi, et à la demande (onglet *Actions*, « Run workflow »). Elles reprennent le dernier
   état de la branche `main` de chaque module.
+- **Liens** : `links.yml` construit le site et lance `scripts/check_links.py` chaque lundi ; un lien interne ou externe mort fait échouer le
+  workflow, ce qui prévient par mail.
 - **Dépendances** : Dependabot ouvre chaque mois une demande de fusion groupée pour Zensical et pour les actions GitHub, assignée à `allfab` ; la
   construction en PR vérifie qu'elles passent.
 - Réglage requis une fois : *Settings > Pages > Source : GitHub Actions*.

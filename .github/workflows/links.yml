@@ -1,0 +1,23 @@
+name: Contrôle des liens
+
+# Construit le site et vérifie ses liens : internes et ancres (erreur), externes morts (erreur), autres échecs (avertissement).
+on:
+  schedule:
+    - cron: "47 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v6
+        with:
+          python-version: 3.x
+      - run: pip install -r requirements.txt
+      - run: python scripts/collect_modules.py
+      - run: zensical build --clean
+      - run: python scripts/check_links.py
