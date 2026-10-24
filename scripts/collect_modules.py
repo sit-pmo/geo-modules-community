@@ -89,6 +89,21 @@ def first_paragraph(markdown):
     return ""
 
 
+def short_summary(text, limit=220):
+    """Texte brut pour le tableau : liens, images et emphases réduits à leur texte, coupé à un mot entier."""
+    text = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", text)
+    text = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", text)
+    text = re.sub(r"[*_`]", "", text).replace("|", "/")
+    text = re.sub(r"\s+", " ", text).strip()
+    if len(text) <= limit:
+        return text
+    head = text[:limit]
+    end = head.rfind(". ")
+    if end >= 60:
+        return head[: end + 1]   # coupe à la dernière phrase entière
+    return head.rsplit(" ", 1)[0].rstrip(",;:.(") + "…"
+
+
 def build_module(entry):
     repo, slug = entry["repo"], entry["slug"]
     manifest = json.loads(fetch(repo, "src/plugin.geoext.json"))
@@ -131,7 +146,7 @@ def build_module(entry):
 def write_index(modules):
     rows = "\n".join(
         f"| [{m['name']}]({m['slug']}/index.md) | {m['version']} | {m['min_geo']} | "
-        f"{m['summary'][:220].replace('|', '/')} |"
+        f"{short_summary(m['summary'])} |"
         for m in modules
     )
     page = (
