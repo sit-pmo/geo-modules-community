@@ -1,5 +1,5 @@
 [project]
-site_name = "Communauté des modules GEO"
+site_name = "Bibliothèque participative de modules GEO"
 site_description = "Modules d'extension pour la plateforme GEO de Business Geografic : installation, utilisation, développement et contribution"
 site_author = "Vienne Condrieu Agglomération"
 site_url = "https://vienne-condrieu-agglomeration.github.io/geo-modules-community/"
