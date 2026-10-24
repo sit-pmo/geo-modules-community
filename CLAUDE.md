@@ -9,6 +9,8 @@ aucun code de module**.
 ```
 docs/                       Pages écrites à la main : index, installer, contribuer, developper/
 docs/modules/               GÉNÉRÉ par scripts/collect_modules.py, non versionné : ne jamais l'éditer
+docs/javascripts/external-links.js   Ouvre les liens externes dans un nouvel onglet (chargé par extra_javascript)
+docs/stylesheets/extra.css  Couleurs du thème (bleu de la favicon)
 scripts/modules.json        Modules affichés (repo + slug)
 scripts/collect_modules.py  Lit fiche, README, CHANGELOG et GUIDE-DEV de chaque dépôt de module
 zensical.toml               Configuration ; la zone « # >>> modules » … « # <<< modules » du nav est réécrite par le script
@@ -29,6 +31,12 @@ zensical build --clean               # génère site/ (non versionné)
 
 - **Navigation explicite** : une page absente du `nav` de `zensical.toml` n'apparaît pas dans le menu. Une nouvelle page écrite à la main s'ajoute
   au `nav` ; les pages des modules sont gérées par le script.
+- **Liens externes dans un nouvel onglet** : tout lien vers un autre nom d'hôte que celui du site (documentation de l'éditeur, GitHub, sites tiers, pages
+  générées des modules comprises) s'ouvre dans un nouvel onglet (`target="_blank"`, `rel="noopener noreferrer"`), posé par `docs/javascripts/external-links.js`.
+  Ne pas ajouter `{ target="_blank" }` à la main ni modifier ce comportement. Les liens **internes** restent dans l'onglet courant. Pour écrire un lien,
+  utiliser le Markdown ordinaire : `[texte](https://…)`.
+- **Vérifier les liens avant de pousser** : après `zensical build`, contrôler que les liens internes et les ancres existent dans `site/` et que les liens
+  externes répondent 200 (un certificat incomplet côté serveur distant peut faire échouer un test local sans casser le lien dans un navigateur).
 - **Ajouter un module** : une entrée dans `scripts/modules.json` (dépôt public avec `src/plugin.geoext.json` et `README.md`), puis relancer le script.
 - **Version de Zensical figée** dans `requirements.txt` : le projet évolue vite. La changer volontairement, après un `zensical build` sans avertissement.
 - Les pages `developper/` sont la version publique des retours d'expérience : pas d'identifiants, pas de chemins de services internes, pas de noms de

@@ -9,6 +9,9 @@ edit_uri = "edit/main/docs/"
 extra_css = [
   "stylesheets/extra.css",
 ]
+extra_javascript = [
+  "javascripts/external-links.js",
+]
 copyright = "Copyright &copy; 2026 Vienne Condrieu Agglomération"
 
 # Navigation explicite : une page absente de « nav » n'apparaît pas dans le menu. Les pages des modules sont
