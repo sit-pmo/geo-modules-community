@@ -81,3 +81,14 @@ toggle.name = "Passer en mode sombre"
 [project.theme.font]
 text = "Inter"
 code = "JetBrains Mono"
+
+# Liens du pied de page
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/vienne-condrieu-agglomeration"
+name = "Organisation GitHub"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/discord"
+link = "https://discord.com/channels/1080047753863909446/"
+name = "Club Utilisateurs GEO (Discord)"

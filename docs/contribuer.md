@@ -6,6 +6,14 @@ icon: lucide/git-pull-request
 
 Les contributions (corrections, améliorations, documentation) sont les bienvenues.
 
+## Échanger avec la communauté
+
+Le **Club Utilisateurs GEO** est un serveur Discord où les utilisateurs de GEO échangent sur son usage et son administration. Il compte des fils
+de discussion consacrés à certains de ces modules (comparaison de rasters, vues immersives Panoramax). Pour poser une question, partager un retour
+d'expérience ou discuter d'une idée avant d'ouvrir une issue, rejoignez le [Club Utilisateurs GEO](https://discord.com/channels/1080047753863909446/).
+
+Ce serveur est animé par la communauté des utilisateurs de GEO, indépendamment de ce site.
+
 ## Signaler un problème ou proposer une idée
 
 Ouvrez une *issue* sur le **dépôt du module concerné** (lien « Signaler un problème » sur la page de chaque [module](modules/index.md)).
