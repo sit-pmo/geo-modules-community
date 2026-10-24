@@ -39,6 +39,8 @@ nav = [
 
 [project.theme]
 language = "fr"
+favicon = "assets/images/favicon.png"
+logo = "assets/images/favicon.png"
 features = [
     "content.action.edit",
     "content.code.annotate",
