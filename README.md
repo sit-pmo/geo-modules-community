@@ -23,7 +23,7 @@ requirements.txt         Version de Zensical (figée)
 python -m venv .venv && . .venv/bin/activate
 pip install -r requirements.txt
 python scripts/collect_modules.py     # génère docs/modules/ (accès réseau à GitHub)
-zensical serve                        # http://localhost:8000
+zensical serve                        # http://localhost:8000 (utiliser le Zensical du .venv : la version est figée)
 ```
 
 ## Ajouter un module au site
@@ -31,10 +31,32 @@ zensical serve                        # http://localhost:8000
 Ajouter une entrée `{ "repo": "geo-module-<nom>", "slug": "<nom>" }` dans `scripts/modules.json`. Le dépôt du module doit être public et contenir
 `src/plugin.geoext.json` et `README.md` ; `CHANGELOG.md` et `GUIDE-DEV.md` sont repris s'ils existent.
 
+## Le script de collecte (`scripts/collect_modules.py`)
+
+Il génère les pages « modules » du site à partir des dépôts GitHub des modules. Il tourne avant `zensical build`, en local comme dans le workflow.
+Il n'utilise que la bibliothèque standard de Python.
+
+1. Lit `scripts/modules.json` (dépôts, slugs, organisation, branche).
+2. Récupère pour chaque module, sur `raw.githubusercontent.com` : `src/plugin.geoext.json` et `README.md` (obligatoires), `CHANGELOG.md` et
+   `GUIDE-DEV.md` (facultatifs).
+3. Écrit dans `docs/modules/<slug>/` : `index.md` (en-tête avec version, GEO minimum, licence et boutons ZIP / dépôt / issues, puis le README),
+   `changelog.md` et `guide-dev.md` s'ils existent.
+4. Réécrit les liens du README : liens vers `CHANGELOG.md` et `GUIDE-DEV.md` rendus internes au site, autres liens et images relatifs rendus absolus
+   vers le dépôt. Les blocs de code ne sont pas modifiés.
+5. Génère `docs/modules/index.md`, le tableau des modules (description réduite à du texte brut, coupée à la dernière phrase entière).
+6. Met à jour le `nav` de `zensical.toml`, **uniquement** entre les marqueurs `# >>> modules` et `# <<< modules`.
+
+À savoir :
+
+- `docs/modules/` est **effacé et recréé** à chaque exécution et n'est pas versionné : ne jamais l'éditer à la main.
+- Le script s'arrête au moindre échec sur un fichier obligatoire (dépôt introuvable, erreur réseau) : mieux vaut ne rien publier qu'un site à moitié construit.
+- Il modifie `zensical.toml` (zone entre les marqueurs) : après l'ajout d'un module, ce fichier apparaît dans `git diff` et doit être commité.
+- Il lit la branche indiquée dans `modules.json` (`main`), c'est-à-dire le dernier état poussé, pas la dernière release.
+
 ## Mettre à jour le site
 
-Chaque push sur `main` reconstruit et publie le site. Une reconstruction manuelle (onglet *Actions*, « Run workflow ») reprend la dernière version
-publiée de chaque module. Réglage requis une fois : *Settings > Pages > Source : GitHub Actions*.
+Chaque push sur `main` reconstruit et publie le site. Une reconstruction manuelle (onglet *Actions*, « Run workflow ») reprend le dernier état de la
+branche `main` de chaque module. Réglage requis une fois : *Settings > Pages > Source : GitHub Actions*.
 
 ## Licence
 
