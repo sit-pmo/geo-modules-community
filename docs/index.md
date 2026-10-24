@@ -4,9 +4,10 @@ icon: lucide/puzzle
 
 # Bibliothèque participative de modules GEO
 
-Bienvenue sur le site des **modules d'extension pour GEO**, la plateforme cartographique de Business Geografic. Ces modules sont développés et
-utilisés par le service SIG et Foncier de Vienne Condrieu Agglomération, et partagés sous licence libre pour que d'autres collectivités puissent
-les installer, les adapter et les améliorer.
+Bienvenue dans la **bibliothèque participative de modules GEO**. Ces modules d'extension, que chacun peut installer, adapter et améliorer,
+enrichissent les applications créées avec [GEO](https://cirilgroup.com/logiciels-et-donnees/sig/geo-technologies/){ target="_blank" rel="noopener" }, la plateforme cartographique de Business Geografic. La bibliothèque est animée par le service SIG et
+Foncier de Vienne Condrieu Agglomération, qui y publie sous licence libre les modules qu'il développe et utilise. Toutes les collectivités et
+structures qui utilisent GEO sont invitées à employer ces modules, à signaler les problèmes et à proposer des améliorations.
 
 ## Pour qui ?
 
