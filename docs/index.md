@@ -35,6 +35,10 @@ structures qui utilisent GEO sont invitées à employer ces modules, à signaler
 
     Signaler un problème, proposer une correction.
 
+- :lucide-users: **[Gouvernance](gouvernance.md)**
+
+    Qui décide, et comment une idée devient une fonctionnalité d'un module.
+
 - :lucide-message-circle: **[Échanger](https://discord.com/channels/1080047753863909446/)**
 
     Poser une question ou partager un retour d'expérience avec le Club Utilisateurs GEO, sur Discord.
