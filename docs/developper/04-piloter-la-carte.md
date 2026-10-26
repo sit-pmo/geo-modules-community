@@ -13,3 +13,10 @@
 - ✅ Un événement peut arriver **deux fois** pour le même objet : dédoublonnez sur son identifiant.
 - ✅ Si l'utilisateur doit tracer sur la carte GEO pendant qu'un panneau couvre une vue 3D, grisez la vue, bloquez son pointage et affichez
   « Cliquez sur la carte », avec un bouton annuler. Sans cela, il ne comprend pas où tracer.
+- ✅ **Cadrer une parcelle dans la partie visible de la carte** : `setExtent` de GEO applique ses **propres marges de canvas** et ne suit pas l'emprise
+  qu'on lui donne (même échelle et même position avec trois emprises différentes, constaté sur GEO 4.5.0). Utilisez la vue OpenLayers native :
+  `view.fit(emprise, { size, padding: [20, recouvrement + 20, 20, 20], maxZoom: 20, duration: 300 })`, avec `recouvrement` mesuré sur la page
+  (bord droit de la carte moins bord gauche du panneau ; 0 s'il est négatif ou couvre presque toute la carte). L'emprise doit être exprimée dans la
+  projection de la vue. Gardez `setExtent` en repli, si la vue native n'est pas accessible.
+- ✅ **En plein écran**, le panneau recouvre toute la carte : sortez du plein écran puis attendez que le panneau ait retrouvé sa largeur (environ
+  0,5 s) avant de mesurer, sinon le recouvrement mesuré est absurde.
