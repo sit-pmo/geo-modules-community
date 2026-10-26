@@ -4,6 +4,7 @@
   "branche": "main",
   "modules": [
     { "repo": "geo-module-panoramax", "slug": "panoramax" },
-    { "repo": "geo-module-compare-swipe", "slug": "compare-swipe" }
+    { "repo": "geo-module-compare-swipe", "slug": "compare-swipe" },
+    { "repo": "geo-module-dfi", "slug": "dfi" }
   ]
 }

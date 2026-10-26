@@ -27,6 +27,10 @@ structures qui utilisent GEO sont invitées à employer ces modules, à signaler
 
     Importer le ZIP dans le Générateur GEO et le placer dans une application.
 
+- :lucide-database: **[Données et intégrateurs](donnees.md)**
+
+    Les données ouvertes préparées pour les modules (par exemple la filiation des parcelles) et comment les publier chez vous.
+
 - :lucide-code: **[Développer un module](developper/index.md)**
 
     Retours d'expérience sur le développement d'extensions GEO.
